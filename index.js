@@ -1,5 +1,4 @@
 let services = []
-
 let sum = 0
 
 const carBtn = document.getElementById("car-btn")
@@ -12,6 +11,8 @@ const sendBtn = document.getElementById("send-btn")
 
 
 carBtn.addEventListener("click", function(){
+    /* once the button is clicked, the button disables */
+
     carBtn.disabled = true 
     services.push("car")
     renderServices("car")
@@ -39,6 +40,8 @@ weedBtn.addEventListener("click", function(){
      //console.log(weedClicked)
 })
 
+/* button to send the invoice.  Once, the button is clicked, enable all the price buttons*/
+
 sendBtn.addEventListener("click", function(){
     services=[]
     renderServices("")
@@ -56,11 +59,14 @@ function renderServices(service) {
 
     for (let i = 0; i<services.length; i++){
         if(services[i] === "car") {
+    /*check if each button clicked is the one wanted by the user and assigns the appropriate value to its respective variable*/
 
             typeService = "Wash Car"
             price = 10
 
             console.log(typeService + " $" + price)
+
+            /*update the sum for the bill */
             sum+=price
            
         }
@@ -87,7 +93,7 @@ function renderServices(service) {
        
 
     }
-
+    /*output to the page */
     details.innerHTML = eachTransaction
     
 
